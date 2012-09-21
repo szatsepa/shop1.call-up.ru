@@ -19,5 +19,11 @@ $(document).ready(function(){
                 document.location.href = "index.php?act=ont"
             }
         });
+        
+       $("#tickets").mousedown(function(){
+           if(act != 'tcks'){
+                document.location.href = "index.php?act=tcks"
+            }
+       });
 });
 

@@ -100,28 +100,12 @@ tr.dat {
     min-width: 1080px;
     display: none;
 }
-/*.edit_customer{
+.get_pwd,.view_wallet,.edit_wallet,.delete_customer,.edit_customer,.go_game,.view_this{
     text-decoration: underline;
     cursor: pointer;
     color: black;
 }
-.edit_customer:hover{
-    color:blueviolet;
-}*/
-/*.delete_customer{
-    text-decoration: underline;
-    cursor: pointer;
-    color: black;
-}
-.delete_customer:hover{
-    color:blueviolet;
-}*/
-.get_pwd,.view_wallet,.edit_wallet,.delete_customer,.edit_customer{
-    text-decoration: underline;
-    cursor: pointer;
-    color: black;
-}
-.get_pwd:hover,.view_wallet:hover,.edit_wallet:hover,.delete_customer:hover,.edit_customer:hover{
+.get_pwd:hover,.view_wallet:hover,.edit_wallet:hover,.delete_customer:hover,.edit_customer:hover,.go_game:hover,.view_this:hover{
     color:blueviolet;
 }
 #about_customer,#about_account{

@@ -37,13 +37,13 @@ if (!isset($_SESSION[id])) {?>
     <input type="hidden" id="act" value="<?php echo $attributes[act];?>"/>
     <a id="customer" class="header2">Пользователи</a>
     <a id="accounts" class="header2">Счета</a>
-<!--     <a  class="header2">Товары</a>
-    <a  class="header2">Реклама</a>
+    <a id="tickets" class="header2">Билеты</a>
+<!--    <a  class="header2">Реклама</a>
     <a  class="header2">Витрина</a>
     <a  class="header2">Рубрикатор</a>
     <a  class="header2">Заказы</a>
     <a  class="header2">Отчеты</a>
-    <a  class="header2">Статистика</a> --> 
+    <a  class="header2">Статистика</a>  -->
 </td>
 <td width='*' align='right'>
     <small>

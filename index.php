@@ -16,6 +16,7 @@ if(!isset($_SESSION)){
     session_start();  
 }
 
+//print_r($attributes);
 
 $_SESSION[res] = "shop1.call-up.ru/";
 
@@ -39,11 +40,22 @@ switch ($attributes[act]) {
         include './main/header.php';
         include './main/accountlist.php';
         include './main/footer.php';
-        break;    
+        break; 
+    
+    case 'tcks':
+        include './main/header.php';
+        include './main/ticketlist.php';
+        include './main/footer.php';
+        break;
+    
+    case 'msg':
+        include './main/header.php';
+        include './main/getmsg.php';
+        include './main/footer.php';
+        break;
     
     case "authentication":
-       
-        include ("./query/authentication.php");     
+       include ("./query/authentication.php");     
     break;
         
       case "logout":
@@ -58,9 +70,5 @@ default :
 }
 
 mysql_close();
-
-if(isset ($attributes[err]) and $attributes[err] == 'auth'){
-           echo '<script language="javascript">alert("Пожалуйста, введите правильно ключ\n                 или будьте гостем!.")</script>';
-       }
 
 ?>
