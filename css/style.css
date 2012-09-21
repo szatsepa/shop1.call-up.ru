@@ -23,11 +23,6 @@ a.header2{
 a:hover.header2 {
 	background: #000000;
 	color: Yellow;
-/*	font-size:9pt;
-	padding: 3px 7px;
-	font-weight:bold;
-	text-decoration:none;
-	margin:0;*/
 }
 
 div.selector {
@@ -41,9 +36,9 @@ div.selector {
 	}
 
 span.selector {
-	display: inline;
-	margin-right: 2px;
-	}
+    display: inline;
+    margin-right: 2px;
+    }
         
 div.outside{
     position: absolute;
@@ -51,47 +46,45 @@ div.outside{
         }
 #wrapper {
     position: relative;
-       width: 1020px;
-       height: auto !important;
-        margin: 0px auto;
-/*        outline: 1px solid blueviolet;*/
+    width: 1020px;
+    height: auto !important;
+    margin: 0px auto;
 }
 .footer_box{
-        position:relative;
-        float: left;
-        width: 1020px;
-        margin: 0 auto;
+    position:relative;
+    float: left;
+    width: 1020px;
+    margin: 0 auto;
 }
 
 .footer {
-        position:relative;
-        width: 100%;
-        height: 67px; 
-        background-color:#ececec;
-        background-repeat: no-repeat;
+    position:relative;
+    width: 100%;
+    height: 67px; 
+    background-color:#ececec;
+    background-repeat: no-repeat;
 }
 table.dat {
-	display: block;
-	border: solid 1px gray;	
-	font-size:10pt;
-	margin-left: 2px;
-	margin-right: 2px;
+    display: block;
+    border: solid 1px gray;	
+    font-size:10pt;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 th.dat{
-		background: #002778;
-		color:White;
-		font-size:9pt;
-		padding: 3px 15px;
+    background: #002778;
+    color:White;
+    font-size:9pt;
+    padding: 3px 15px;
 		
 }
 td.dat {
-		padding: 1px 1px ;
-		font-size:9pt;
-		
-	    border-bottom : thin solid;
+    padding: 1px 1px ;
+    font-size:9pt;
+    border-bottom : thin solid;
 }
 tr.dat {
-	border: solid 1px gray;
+    border: solid 1px gray;
 	
 }
 #cust_list,#account_list{
@@ -108,7 +101,7 @@ tr.dat {
 .get_pwd:hover,.view_wallet:hover,.edit_wallet:hover,.delete_customer:hover,.edit_customer:hover,.go_game:hover,.view_this:hover{
     color:blueviolet;
 }
-#about_customer,#about_account{
+#about_customer,#about_account,#view_t{
     position: relative;
     display: none;
 }
@@ -129,4 +122,24 @@ div.t_wallet{
     color: black;
     font-size: 12px;
     font-weight: normal;
+}
+#cid, #f_A, #f_B, #f_C, #em, #v_back{
+    font-size: 16px;
+    color: black;
+}
+#view_t{
+    padding-left: 36px;
+    padding-top: 27px;
+}
+#cid{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ececec;
+}
+#v_back{
+    font-size: 18px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 187px;
+    height: 64px;
 }

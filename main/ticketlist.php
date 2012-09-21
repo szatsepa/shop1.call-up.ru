@@ -19,3 +19,11 @@
         </tbody>
     </table>
  </div>
+<div id="view_t">
+    <p id="cid"></p>
+    <p id="f_A"></p>
+    <p id="f_B"></p>
+    <p id="f_C"></p>
+    <p id="em"></p>
+    <span id="v_back">Вернутся<br/><br/></span>
+</div>

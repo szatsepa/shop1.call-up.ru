@@ -27,6 +27,10 @@ $time = gmmktime();
 
 $out = array('ticket'=>$tmp,'email'=>$email,'time'=>$time);
 
+mysql_query("UPDATE arch_zakaz SET `report` = 1 WHERE id=$order");
+
+$out['report'] = mysql_affected_rows();
+
 echo json_encode($out);
 
 mysql_close();

@@ -4,6 +4,8 @@
  */
 $(document).ready(function(){
     
+    var id_row = 0;
+    
     $.ajax({
         url:'./query/ticketlist.php',
         type:'post',
@@ -22,6 +24,33 @@ $(document).ready(function(){
         error:function(data){
             console.log(data['responseText']);
         }
+    });
+    
+    $("#v_back").mousedown(function(){
+        $("#view_t").css('display','none');
+        $("#cust_list").css('display', 'block'); 
+    });
+    
+    $(".view_this").live('click',function(){
+        var order = this.name;
+        $.ajax({
+            url:'./query/view_order.php',
+            type:'post',
+            dataType:'json',
+            data:{order:order},
+            success:function(data){
+                $("#view_t").css('display','block');
+                $("#cid").text($("#t_list tbody tr:eq("+id_row+") td:eq(1)").text());
+                $("#f_A").text(data['a']);
+                $("#f_B").text(data['b']);
+                $("#f_C").text(data['c']);
+                $("#em").text(data['email']);
+                $("#cust_list").css('display', 'none');
+            },
+            error:function(data){
+                console.log(data['responseText']);
+            }
+        });
     });
     
     $(".go_game").live('click',function(){
@@ -47,17 +76,8 @@ $(document).ready(function(){
     $("#t_list tbody tr").live('click',function(){
         $("#t_list tbody tr").css('background-color','inherit');
         var row_id = this.rowIndex;
+        id_row = this.rowIndex - 1;
         $("#t_list > tbody > tr:eq("+(row_id-1)+")").css('background-color', '#ececfc');
-    });
-    
-    function goNaHuy(data){
-        console.log(data);
-        $.ajax({
-            url:'index.php?act=getmsg',
-            type:'post',
-            data:{msg:data['ticket'],email:data['email'],gmt:data['time']}
-        });
-    }
-
+    }); 
 });
 
