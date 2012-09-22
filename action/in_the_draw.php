@@ -17,8 +17,8 @@ $tmp = '';
 $row = 0;
 
 while($var = mysql_fetch_row($result)){
-    $tmp .= substr($var[1], 1);
-    if($row == 4 OR $row == 14)$tmp .= " ";
+    $tmp .= substr($var[1], 1).';';
+    if($row == 4 OR $row == 14)$tmp .= ":";
     $email = $var[0];
     $row++;
 }
@@ -34,4 +34,6 @@ $out['report'] = mysql_affected_rows();
 echo json_encode($out);
 
 mysql_close();
+
+
 ?>

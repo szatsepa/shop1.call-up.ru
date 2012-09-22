@@ -49,9 +49,9 @@ switch ($attributes[act]) {
         break;
     
     case 'msg':
-        include './main/header.php';
-        include './main/getmsg.php';
-        include './main/footer.php';
+//        include './main/header.php';
+//        include './main/getmsg.php';
+//        include './main/footer.php';
         break;
     
     case "authentication":

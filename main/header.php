@@ -22,14 +22,16 @@ header('Content-Type: text/html; charset=utf-8');
 <div id= "wrapper">
 <h3>&nbsp;<?php echo $title;?></h3>
 
-<div class="selector"><table border="0" width="100%"><tr>
+<div class="selector">
+    <table border="0" width="100%">
+        <tr>
 <?php 
 if (!isset($_SESSION[id])) {?>
 <form action="index.php?act=authentication" method="post">
     <input type="hidden" name="query_str" value="<? echo $_SERVER["QUERY_STRING"]; ?>"/>
     <td width='*' align='right'>
         <input type="password" name="code" size="10"/>
-        <input type="submit" value="&gt;&gt;" />
+        <input id="psw_submit" type="submit" value="&gt;&gt;" />
     </td>
 </form>
 <?php } else if(isset($user) && $user->role == 7){?>

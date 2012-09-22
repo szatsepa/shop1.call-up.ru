@@ -6,6 +6,8 @@ $(document).ready(function(){
     
     var id_row = 0;
     
+    var order = 0;
+    
     $.ajax({
         url:'./query/ticketlist.php',
         type:'post',
@@ -54,17 +56,15 @@ $(document).ready(function(){
     });
     
     $(".go_game").live('click',function(){
-        var order = this.name;
+        order = this.name;
         $.ajax({
             url:'./action/in_the_draw.php',
             type:'post',
             dataType:'json',
             data:{order:order},
             success:function(data){
-                console.log(data);  
                 if(data){
-                    document.write('<form action="index.php?act=msg" method="post"><input type="hidden" name="msg" value="'+data['ticket']+'"/><input name="email" type="hidden" value="'+data['email']+'"><input name="gmt" type="hidden" value="'+data['time']+'"></form>');
-                    document.forms[0].submit();
+                    ticketOut(data);
                 }
             },
             error:function(data){
@@ -78,6 +78,45 @@ $(document).ready(function(){
         var row_id = this.rowIndex;
         id_row = this.rowIndex - 1;
         $("#t_list > tbody > tr:eq("+(row_id-1)+")").css('background-color', '#ececfc');
-    }); 
+    });
+    
+    function ticketOut(data){
+        $.ajax({
+            url:'./query/in_out.php',
+            type:'post',
+            dataType:'xml',
+            data:{message:data['ticket'],time:data['time'],username:data['email']},
+            success:function(data){
+                $(data).find("response").each(function(){
+                    var out = {order:order,ticket_no:$(this).find("ticket_no").text(),period_date:$(this).find("period_date").text(),period_id:$(this).find("period_id").text()};
+                     console.log(out);
+                     transferTicket(out);
+                });
+            },
+            error:function(data){
+                console.log(data);
+            }
+          
+        });
+        return false;
+    }
+    function transferTicket(out){
+        $.ajax({
+            url:'./action/transfer_ticket.php',
+            type:'post',
+            dataType:'json',
+            data:out,
+            success:function(data){
+               console.log(data);
+               if(data['ok']==1){
+                   $("#t_list > tbody > tr:eq("+id_row+")").remove();
+               }
+            },
+            error:function(data){
+                console.log(data['responseText']);
+            }
+        });
+    }
+
 });
 
