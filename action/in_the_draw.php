@@ -17,21 +17,22 @@ $tmp = '';
 $row = 0;
 
 while($var = mysql_fetch_row($result)){
-    $tmp .= substr($var[1], 1).';';
-    if($row == 4 OR $row == 14)$tmp .= ":";
+    $tmp .= substr($var[1], 1).' ';
     $email = $var[0];
     $row++;
 }
 
 $time = gmmktime();
 
+rtrim($tmp);
+
 $out = array('ticket'=>$tmp,'email'=>$email,'time'=>$time);
 
-mysql_query("UPDATE arch_zakaz SET `report` = 1 WHERE id=$order");
+mysql_query("UPDATE arch_zakaz SET `report` = 1,`status` = 2 WHERE id=$order");
 
 $out['report'] = mysql_affected_rows();
 
-echo json_encode($out);
+echo json_encode($out); 
 
 mysql_close();
 

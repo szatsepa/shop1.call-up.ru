@@ -3,37 +3,46 @@
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
+ * zvidsy http://webi.ru/webi_articles/6_7_f.html 
  */
 
-$tmp = explode(':', $_POST[message]);
+$url = "http://92.61.33.77/dm/scripts/web/buy.php"; // это адрес, по которому скрипт передаст данные методом POST. Как видно, здесь указаны переменные, которые будут переданы через GET
+$parse_url = parse_url($url); // при помощи этой функции разбиваем адрес на массив, который будет содержать хост, путь и список переменных.
+$path = $parse_url["path"]; // путь до файла(/patch/file.php)
+if($parse_url["query"]) // если есть список параметров
+$path .= "?" . $parse_url["query"]; // добавляем к пути до файла список переменных(?var=23&var2=54)
+$host= $parse_url["host"]; // тут получаем хост (test.ru)
+$data = "message=$_POST[message]&time=$_POST[time]&username=$_POST[username]"; // а вот тут создаем список переменных с параметрами. Эти данные будут переданы через POST. Все значения переменных обязательно нужно кодировать urlencode ("еще тест")
 
-$a = $tmp[0];
+$fp = fsockopen($host, 80, $errno, $errstr, 10);
+if ($fp)
+{
+  $out = "POST ".$path." HTTP/1.1\n";
+  $out .= "Host: ".$host."\n";
+  $out .= "Referer: ".$url."/\n";
+  $out .= "User-Agent: Opera\n";
+  $out .= "Content-Type: application/x-www-form-urlencoded\n";
+  $out .= "Content-Length: ".strlen($data)."\n\n"; 
+  $out .= $data."\n\n";
 
-$b = $tmp[1];
+  fputs($fp, $out); // отправляем данные
 
-$c = $tmp[2];
-
-$num_ticket = numOrder();
-
-$p_date = date("Y-m-d H:i:s");
-
-$p_id = rand(1, 999);
-
-$str_out = "<response><ticket_no>$num_ticket</ticket_no><period_date>$p_date</period_date><period_id>$p_id</period_id><A>$a</A><B>$b</B><C>$c</C></response>";
-
-echo $str_out;
+  // после отправки данных можно получить ответ сервера и прочитать информацию выданную файлом, в который отправили данные...
+  // читаем данные построчно и выводим их. Конечно, эти данные можно использовать по своему усмотрению.
 
 
-function numOrder(){
-    $str = '';
-            for($ii = 0;$ii<4;$ii++){
-                for($i=0;$i<3;$i++){
-                    $tmp = rand(0, 9);
-                    $str .= $tmp;
-                }
-            if($ii != 3)$str .= ' ';          
-            }
+$tmp = array();
 
-            return $str;
-}
+$row = 0;
+
+  while($gets=fgets($fp,2048))
+  {
+      $tmp[$row]= $gets;
+      $row++;
+  } 
+  
+  echo $tmp[$row-1];
+ 
+  fclose($fp);
+} 
 ?>

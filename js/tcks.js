@@ -89,12 +89,11 @@ $(document).ready(function(){
             success:function(data){
                 $(data).find("response").each(function(){
                     var out = {order:order,ticket_no:$(this).find("ticket_no").text(),period_date:$(this).find("period_date").text(),period_id:$(this).find("period_id").text()};
-                     console.log(out);
                      transferTicket(out);
                 });
             },
             error:function(data){
-                console.log(data);
+                console.log(data['responseText']);
             }
           
         });
@@ -107,7 +106,6 @@ $(document).ready(function(){
             dataType:'json',
             data:out,
             success:function(data){
-               console.log(data);
                if(data['ok']==1){
                    $("#t_list > tbody > tr:eq("+id_row+")").remove();
                }
