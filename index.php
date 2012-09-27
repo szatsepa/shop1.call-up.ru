@@ -48,18 +48,18 @@ switch ($attributes[act]) {
         include './main/footer.php';
         break;
     
-    case 'msg':
-//        include './main/header.php';
-//        include './main/getmsg.php';
-//        include './main/footer.php';
+    case 'draw':
+        include './main/header.php';
+        include './main/ticket_draws.php';   
+        include './main/footer.php';
         break;
     
     case "authentication":
-       include ("./query/authentication.php");     
+       include "./query/authentication.php";     
     break;
         
       case "logout":
-        include ("./action/logout.php");
+        include "./action/logout.php";
     break;
 
 

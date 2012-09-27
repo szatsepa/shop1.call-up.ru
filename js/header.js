@@ -9,20 +9,26 @@ $(document).ready(function(){
     
         $("#customer").mousedown(function(){
             if(act != 'main'){
-                document.location.href = "index.php?act=main"
+                document.location.href = "index.php?act=main";
             }
         });
     
    
         $("#accounts").mousedown(function(){
             if(act != 'ont'){
-                document.location.href = "index.php?act=ont"
+                document.location.href = "index.php?act=ont";
             }
         });
         
        $("#tickets").mousedown(function(){
            if(act != 'tcks'){
-                document.location.href = "index.php?act=tcks"
+                document.location.href = "index.php?act=tcks";
+            }
+       });
+       
+       $("#draw").mousedown(function(){
+           if(act != 'draw'){
+                document.location.href = "index.php?act=draw";
             }
        });
        

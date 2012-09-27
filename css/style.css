@@ -123,7 +123,7 @@ div.t_wallet{
     font-size: 12px;
     font-weight: normal;
 }
-#cid, #f_A, #f_B, #f_C, #em, #v_back{
+#cid, #f_A, #f_B, #f_C, #em, #v_back,#ch_status{
     font-size: 16px;
     color: black;
 }
@@ -136,10 +136,13 @@ div.t_wallet{
     font-weight: bold;
     background-color: #ececec;
 }
-#v_back{
+#v_back,#ch_status{
     font-size: 18px;
     text-decoration: underline;
     cursor: pointer;
     margin-left: 187px;
     height: 64px;
+}
+select,option,input{
+    color: black;
 }

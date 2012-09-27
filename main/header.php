@@ -40,8 +40,8 @@ if (!isset($_SESSION[id])) {?>
     <a id="customer" class="header2">Пользователи</a>
     <a id="accounts" class="header2">Счета</a>
     <a id="tickets" class="header2">Билеты</a>
-<!--    <a  class="header2">Реклама</a>
-    <a  class="header2">Витрина</a>
+    <a id="draw" class="header2">Тираж</a>
+<!--    <a  class="header2">Витрина</a>
     <a  class="header2">Рубрикатор</a>
     <a  class="header2">Заказы</a>
     <a  class="header2">Отчеты</a>
