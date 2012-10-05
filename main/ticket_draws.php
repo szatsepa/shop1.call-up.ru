@@ -1,6 +1,6 @@
-<?php
-    $title .= " - билеты.";
-?>
+<div id="newt_draw">
+    <p style="text-align: right;">Ближайший тираж лотереи <?php echo $str_next_draw;?> г.</p>
+</div>
 <div id="cust_list">
     
     <table class="dat" id="t_list" border="1">

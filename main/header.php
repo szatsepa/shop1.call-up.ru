@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8'); 
+$title="MENAGEMENT";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
@@ -7,7 +8,7 @@ header('Content-Type: text/html; charset=utf-8');
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Last-Modified" value="<?php echo date("r",(time() - 60));?>">
-	<title>MENAGEMENT</title> 
+	<title><?php echo $title;?></title> 
 	<link rel="STYLESHEET" type="text/css" href="css/style.css">
         <script type="text/javascript" src="js/jquery-1.8b1.js"></script>
         <script type="text/javascript" src="js/my_request.js"></script>
@@ -54,10 +55,12 @@ if (!isset($_SESSION[id])) {?>
         </b>
     </small>
 </td>
-<?php }?>
+<?php }
+
+?>
 </tr>
     </table>
 </div>
 <br /> 
-<h3><?php echo $title; ?></h3>
+<!--<h3><?php echo $title; ?></h3>-->
      

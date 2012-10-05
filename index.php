@@ -11,12 +11,31 @@ $attributes = array();
 
 $attributes = array_merge($_GET,$_POST,$_COOKIE); 
 
-if(!isset($_SESSION)){ 
+if(!isset($_SESSION)){  
 
     session_start();  
 }
 
 //print_r($attributes);
+//
+$days_name = array('вс','пн','вт','ср','чт','пт','сб');
+$month_name = array('янв','февр','март','апр','май','июнь','июль','авг','сент','окт','ноя','дек');
+
+$dayofweek = date("w");
+
+if($dayofweek > 3){
+        $delta = (6 - $dayofweek)+4;
+        
+    }else{
+        $delta = 3-$dayofweek;
+    }
+
+$next_draw  = mktime(0, 0, 0, date("m")  , date("d")+$delta, date("Y"));
+$month = intval(date(m,$next_draw));
+$str_next_draw = date("d-$month_name[$month]-Y",$next_draw);   
+ 
+
+
 
 $_SESSION[res] = "shop1.call-up.ru/";
 
@@ -49,6 +68,7 @@ switch ($attributes[act]) {
         break;
     
     case 'draw':
+        $title .= " - билеты.";
         include './main/header.php';
         include './main/ticket_draws.php';   
         include './main/footer.php';
