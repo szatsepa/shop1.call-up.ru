@@ -1,5 +1,10 @@
 <div id="newt_draw">
-    <p style="text-align: right;">Ближайший тираж лотереи <?php echo $str_next_draw;?> г.</p>
+    <p style="text-align: right;">Актуальный розыгрыш лотереи <?php echo $str_next_draw;?> г.</p>
+    <span id="video_link">
+        <input type="hidden" id="date_draw" value="<?php echo $date_out;?>"/> 
+        <input type="text" id="vl" size="64" placeholder="URL видеоролика" value=""/>
+        <input type="button" id="save_link" value="Записать"/>
+    </span>
 </div>
 <div id="cust_list">
     
@@ -11,9 +16,9 @@
             <th class="dat">Телефон</th>
             <th class="dat">Номер билета</th>
             <th class="dat">Дата</th>
-            <th class="dat">Номер в тираже</th>
+            <th class="dat">Номер в розыгрыше</th>
             <th class="dat">Принят</th> 
-            <th class="dat">ID в тираже</th> 
+            <th class="dat">ID в розыгрыше</th> 
             <th class="dat"></th> 
         </thead>
         <tbody>

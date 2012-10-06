@@ -149,9 +149,17 @@ select,option,input{
 #newt_draw{
     position: relative;
     width: 76%;
-    height: 27px;
+    height: 74px;
     padding-left: 48px;
     font-size: 16px;
     font-weight: bold;
     color: black;
+}
+#video_link{
+    text-align: right;
+    width: 100%;
+    padding-left: 93px;
+}
+#vl{
+    background-color: #ececfc;
 }
