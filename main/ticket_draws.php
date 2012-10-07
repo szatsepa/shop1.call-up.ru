@@ -2,7 +2,7 @@
     <p style="text-align: right;">Актуальный розыгрыш лотереи <?php echo $str_next_draw;?> г.</p>
     <span id="video_link">
         <input type="hidden" id="date_draw" value="<?php echo $date_out;?>"/> 
-        <input type="text" id="vl" size="64" placeholder="URL видеоролика" value=""/>
+        <input type="text" id="vl" size="64" placeholder="URL видеоролика" value="" required/>
         <input type="button" id="save_link" value="Записать"/>
     </span>
 </div>

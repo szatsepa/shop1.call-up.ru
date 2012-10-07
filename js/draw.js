@@ -85,23 +85,27 @@ $(document).ready(function(){
     });
     
     $("#save_link").mousedown(function(){
-        var v_link = {vl:$("#vl").val(),dt:$("#date_draw").val()}; 
-        $.ajax({
-            url:'./action/add_videolink.php',
-            type:'post',
-            dataType:'json',
-            data:v_link,
-            success:function(data){
-                console.log(data);
-                if(data['ok']){
-                    $("#vl").css('background-color', '#ecfcec').val('').attr('placeholder', data['vl']);
-                }                
-            },
-            error:function(data){
-                console.log(data['responseText']);
-            }
-            
-        });
+        var vl = $("#vl").val();
+        if(vl.lengts > 10){
+             var v_link = {vl:vl,dt:$("#date_draw").val()}; 
+            $.ajax({
+                url:'./action/add_videolink.php',
+                type:'post',
+                dataType:'json',
+                data:v_link,
+                success:function(data){
+                    console.log(data);
+                    if(data['ok']){
+                        $("#vl").css('background-color', '#ecfcec').val('').attr('placeholder', data['vl']);
+                    }                
+                },
+                error:function(data){
+                    console.log(data['responseText']);
+                }
+
+            });
+        }
+       
     });
     
 });
