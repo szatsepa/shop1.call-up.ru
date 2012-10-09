@@ -146,6 +146,10 @@ div.t_wallet{
 select,option,input{
     color: black;
 }
+#date_draw{
+    color: black;
+    font-weight: bold;
+}
 #newt_draw{
     position: relative;
     width: 76%;

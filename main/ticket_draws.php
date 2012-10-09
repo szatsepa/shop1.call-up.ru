@@ -1,7 +1,7 @@
 <div id="newt_draw">
-    <p style="text-align: right;">Актуальный розыгрыш лотереи <?php echo $str_next_draw;?> г.</p>
+    <p style="text-align: right;">Актуальный розыгрыш лотереи: <input type="text" size="10" id="date_draw" value="<?php echo $date_out;?>"/> г.</p>
     <span id="video_link">
-        <input type="hidden" id="date_draw" value="<?php echo $date_out;?>"/> 
+         
         <input type="text" id="vl" size="64" placeholder="URL видеоролика" value="" required/>
         <input type="button" id="save_link" value="Записать"/>
     </span>

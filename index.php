@@ -32,7 +32,7 @@ if($dayofweek > 3){
 
 $next_draw  = mktime(0, 0, 0, date("m")  , date("d")+$delta, date("Y"));
 $month = intval(date(m,$next_draw));
-$str_next_draw = date("d-$month_name[$month]-Y",$next_draw);
+$str_next_draw = date("d-m-Y",$next_draw);
 $date_out = date("Y-m-d",$next_draw);
  
 
